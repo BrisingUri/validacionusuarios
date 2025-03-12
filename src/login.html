@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(27deg, #34495e 50%, #2c3e50 50%);
+        margin: 0;
+    }
+    .form-body {
+        width: 400px;
+        min-width: 300px;
+        border-radius: 10px;
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center; 
+    }
+    .error-message {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+<body>
+    
+    <div class="form-body">
+        <p class="text">Inicio de sesión</p>
+        <p class="text">Bienvenido a Alfa Dinamita</p>
+        <form class="login-form" id="loginForm">
+            <p><i class='bx bxs-user'></i> <input type="text" id="username" placeholder="Usuario" required> </p> <!-- Textbox usuario -->
+            <div class="input-box">
+                <i class='bx bxs-lock' ></i> <input type="password" id="password" placeholder="Contraseña" required> <!-- Textbox contraseña -->
+            </div>
+            <div class="Recordar usuario-contraseña olvidada"> 
+                <p> <label><input type="checkbox">Recordar usuario</label> </p>
+                <p><a href="#">¿Olvidaste la contraseña?</a> </p>
+            </div>
+            <button type="submit" class="btn">Iniciar Sesión</button>
+            <div class="Crear cuenta">
+                <p>¿No tienes una cuenta?</p> <a href="#">Crear cuenta</a>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+           
+            var validUsers = {
+                'uri': 'uri',
+                'oto': 'oto',
+                'ivan': 'ivan'
+            };
+
+           
+            if (validUsers[username] && validUsers[username] === password) {
+                
+                window.location.href = 'bienvenida.html';
+            } else {
+              
+                document.getElementById('errorMessage').textContent = 'Usuario y contraseña incorrectas';
+            }
+        });
+    </script>
+
+</body>
+</html>
